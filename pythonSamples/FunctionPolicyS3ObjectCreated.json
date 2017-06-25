@@ -1,0 +1,40 @@
+{
+    "Version": "2012-10-17",
+    "Id": "default",
+    "Statement": [
+        {
+            "Sid": "lc-1150fd8e-f761-4db9-8301-ca7d132df4a4",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "s3.amazonaws.com"
+            },
+            "Action": "lambda:InvokeFunction",
+            "Resource": "arn:aws:lambda:us-east-1:814129119746:function:demoLambda",
+            "Condition": {
+                "StringEquals": {
+                    "AWS:SourceAccount": "814129119746"
+                },
+                "ArnLike": {
+                    "AWS:SourceArn": "arn:aws:s3:::aideep"
+                }
+            }
+        },
+        {
+            "Sid": "lc-267d64ff-1cc5-4b78-b4e2-d71e745bf370",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "s3.amazonaws.com"
+            },
+            "Action": "lambda:InvokeFunction",
+            "Resource": "arn:aws:lambda:us-east-1:814129119746:function:demoLambda",
+            "Condition": {
+                "StringEquals": {
+                    "AWS:SourceAccount": "814129119746"
+                },
+                "ArnLike": {
+                    "AWS:SourceArn": "arn:aws:s3:::hopedemos"
+                }
+            }
+        }
+    ]
+}
